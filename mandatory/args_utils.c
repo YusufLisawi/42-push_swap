@@ -44,7 +44,7 @@ int	is_allnum(char *str)
 	return (1);
 }
 
-int	check_digits(char **av)
+int	check_args(char **av)
 {
 	int	i;
 	int	j;

@@ -2,9 +2,7 @@
 
 int main(int ac, char **av)
 {
-	if (ac == 1)
-		return (write(2, "Error\n", 6));
-	else if (check_digits(av) == 0)
+	if (ac == 1 || check_args(av) == 0)
 		return (write(2, "Error\n", 6));
 	return (0);
 }

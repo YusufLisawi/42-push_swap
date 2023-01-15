@@ -3,6 +3,6 @@
 
 # include "../libft/libft.h"
 
-int	check_digits(char **av);
+int	check_args(char **av);
 
 #endif
