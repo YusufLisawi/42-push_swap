@@ -57,20 +57,6 @@ int	check_dups(char **nbs)
 	return (1);
 }
 
-int	is_sorted(char **nbs)
-{
-	int	i;
-
-	i = 0;
-	while (nbs[i])
-	{
-		if (ft_atoi(nbs[i]) > ft_atoi(nbs[i + 1]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int	check_args(int ac, char **av)
 {
 	int		i;
