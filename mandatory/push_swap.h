@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/03 20:56:24 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/03 21:42:40 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct s_stack
 {
-	t_list	*a;
-	t_list	*b;
+	t_list	*top_a;
+	t_list	*top_b;
 }	t_stack;
 
 void	check_args(int ac, char **av, t_stack *stack);

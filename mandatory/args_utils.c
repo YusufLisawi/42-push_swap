@@ -55,6 +55,7 @@ int	check_dups(char **nbs)
 	}
 	return (1);
 }
+
 /*
 	TODO: check if sorted
  */
@@ -77,7 +78,7 @@ void	fill_stack(t_stack *stack, char **nbs)
 	while (nbs[++i])
 	{
 		node = ft_lstnew(ft_atoi(nbs[i]));
-		ft_lstadd_back(&stack->a, node);
+		ft_lstadd_back(&stack->top_a, node);
 	}
 }
 
