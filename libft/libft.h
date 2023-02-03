@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:47:07 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/21 12:24:10 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:45:23 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stddef.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 # include <limits.h>
 
@@ -38,6 +37,7 @@ int		ft_isprint(int c);
 size_t	ft_strlen(const char *str);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_strcmp(const char *s1, const char *s2);
 int		ft_atoi(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);

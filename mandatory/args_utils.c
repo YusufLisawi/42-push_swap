@@ -1,75 +1,78 @@
-#include "../libft/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   args_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/03 12:42:52 by yelaissa          #+#    #+#             */
+/*   Updated: 2023/02/03 15:03:35 by yelaissa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	is_space(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' \
-			|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	is_allnum(char *str)
-{
-	char	**nums;
-	int		i;
-	int		j;
-
-	nums = ft_split(str, ' ');
-	i = 0;
-	while (nums[i])
-	{
-		j = 0;
-		if (nums[i][0] == '-' || nums[i][0] == '+')
-			j++;
-		while (nums[i][j])
-		{
-			if (ft_isdigit(nums[i][j]) == 0)
-			{
-				free(nums[i]);
-				return (0);
-			}
-			j++;
-		}
-		free(nums[i]);
-		i++;
-	}
-	free(nums);
-	return (1);
-}
-
-int	check_args(char **av)
+#include "push_swap.h"
+/* 
+	TODO:
+		INT_MAX/MIN
+ */
+int	check_nums(char **nbs)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	while (av[i])
+	i = 0;
+	while (nbs[i])
 	{
-		if (is_space(av[i]))
+		j = 0;
+		while (nbs[i][j])
 		{
-			if (is_allnum(av[i]) == 0)
+			if (nbs[i][0] == '-' || nbs[i][0] == '+')
+				j++;
+			if (!ft_isdigit(nbs[i][j]))
 				return (0);
-		}
-		else
-		{
-			j = 0;
-			if (av[i][0] == '-' || av[i][0] == '+')
-				j++;
-			while (av[i][j])
-			{
-				if (ft_isdigit(av[i][j]) == 0)
-					return (0);
-				j++;
-			}
+			j++;
 		}
 		i++;
+	}
+	return (1);
+}
+
+int	check_dups(char **nbs)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (nbs[i])
+	{
+		j = i + 1;
+		while (nbs[j])
+		{
+			if (ft_strcmp(nbs[j], nbs[i]) == 0)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	check_args(int ac, char **av)
+{
+	int		i;
+	char	*nbs;
+	char	**nbs_arr;
+
+	i = 0;
+	nbs = "";
+	while (++i < ac)
+		nbs = ft_strjoin(nbs, ft_strjoin(av[i], " "));
+	nbs_arr = ft_split(nbs, ' ');
+	if (!check_nums(nbs_arr) || !check_dups(nbs_arr))
+	{
+		free(nbs);
+		free(nbs_arr);
+		return (0);
 	}
 	return (1);
 }
