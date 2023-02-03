@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:51 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/03 17:12:40 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:23:21 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	main(int ac, char **av)
 {
-	if (ac == 1 || check_args(ac, av) == 0)
-		return (write(2, "Error\n", 6));
-	while (1)
-		;
+	check_args(ac, av);
 	return (0);
 }
