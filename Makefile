@@ -15,6 +15,7 @@ $(NAME): $(LIBFT) $(OBJ)
 
 $(LIBFT):
 		make -C libft
+		make bonus -C libft
 
 clean:
 	rm -f $(OBJ)

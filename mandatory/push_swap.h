@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/03 18:25:12 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:05:40 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 
 # include "../libft/libft.h"
 
-void	check_args(int ac, char **av);
+typedef struct s_stack
+{
+	t_list	*a;
+	t_list	*b;
+}	t_stack;
+
+void	check_args(int ac, char **av, t_stack *stack);
 // Utils
 void	free_arr(char **arr);
 int		ft_strcmp(const char *s1, const char *s2);

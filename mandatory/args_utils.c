@@ -66,11 +66,24 @@ void	check_exit(char **nbs)
 	}
 }
 
-void	check_args(int ac, char **av)
+void	fill_stack(t_stack *stack, char **nbs)
 {
 	int		i;
-	char	*nbs;
+	t_list	*node;
+
+	i = -1;
+	while (nbs[++i])
+	{
+		node = ft_lstnew(ft_atoi(nbs[i]));
+		ft_lstadd_front(&stack->a, node);
+	}
+}
+
+void	check_args(int ac, char **av, t_stack *stack)
+{
+	int		i;
 	char	*s;
+	char	*nbs;
 	char	**nbs_arr;
 
 	if (ac == 1)
@@ -89,5 +102,6 @@ void	check_args(int ac, char **av)
 	nbs_arr = ft_split(nbs, ' ');
 	free(nbs);
 	check_exit(nbs_arr);
+	fill_stack(stack, nbs_arr);
 	free_arr(nbs_arr);
 }
