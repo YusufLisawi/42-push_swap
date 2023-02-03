@@ -61,12 +61,17 @@ int	check_args(int ac, char **av)
 {
 	int		i;
 	char	*nbs;
+	char	*s;
 	char	**nbs_arr;
 
 	i = 0;
 	nbs = 0;
 	while (++i < ac)
-		nbs = ft_strjoin_gnl(nbs, ft_strcat(av[i], " "));
+	{
+		s = ft_strjoin(av[i], " ");
+		nbs = ft_strjoin_gnl(nbs, s);
+		free(s);
+	}
 	nbs_arr = ft_split(nbs, ' ');
 	free(nbs);
 	if (!check_nums(nbs_arr) || !check_dups(nbs_arr))
