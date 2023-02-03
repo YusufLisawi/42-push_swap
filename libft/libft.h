@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 15:47:07 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/03 14:45:23 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/03 15:45:17 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		ft_isprint(int c);
 size_t	ft_strlen(const char *str);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+char	*ft_strcat(char *dest, char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_atoi(const char *str);
 char	*ft_strchr(const char *s, int c);

@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   args_utils.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 12:42:52 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/03 15:03:35 by yelaissa         ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   args_utils.c									   :+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: yelaissa <yelaissa@student.42.fr>		  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2023/02/03 12:42:52 by yelaissa		  #+#	#+#			 */
+/*   Updated: 2023/02/03 15:52:10 by yelaissa		 ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "push_swap.h"
@@ -57,6 +57,20 @@ int	check_dups(char **nbs)
 	return (1);
 }
 
+int	is_sorted(char **nbs)
+{
+	int	i;
+
+	i = 0;
+	while (nbs[i])
+	{
+		if (ft_atoi(nbs[i]) > ft_atoi(nbs[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	check_args(int ac, char **av)
 {
 	int		i;
@@ -64,15 +78,16 @@ int	check_args(int ac, char **av)
 	char	**nbs_arr;
 
 	i = 0;
-	nbs = "";
+	nbs = 0;
 	while (++i < ac)
-		nbs = ft_strjoin(nbs, ft_strjoin(av[i], " "));
+		nbs = ft_strjoin_gnl(nbs, ft_strcat(av[i], " "));
 	nbs_arr = ft_split(nbs, ' ');
+	free(nbs);
 	if (!check_nums(nbs_arr) || !check_dups(nbs_arr))
 	{
-		free(nbs);
-		free(nbs_arr);
+		free_arr(nbs_arr);
 		return (0);
 	}
+	free_arr(nbs_arr);
 	return (1);
 }
