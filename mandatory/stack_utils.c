@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 20:06:40 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 20:27:11 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/04 22:35:01 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,17 @@ void	rotate(t_list **stack)
 		return ;
 	popped = pop(stack);
 	ft_lstadd_back(stack, ft_lstnew(popped));
+}
+
+void	reverse_rotate(t_list **stack)
+{
+	t_list	*tmp;
+
+	if (!(*stack) || !(*stack)->next)
+		return ;
+	tmp = ft_lstlast(*stack);
+	tmp->next = *stack;
+	*stack = tmp;
+	tmp = *stack;
+	// (void)stack;
 }
