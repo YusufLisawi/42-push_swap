@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:20:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 16:33:40 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:20:40 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ void	push_to(t_stack *stack, char option)
 	}
 }
 
-// void	swap(t_list **stack, char option)
-// {
-// 	t_list	*tmp;
+void	swap(t_list **stack, char option)
+{
+	t_list	*tmp;
 
-// 	tmp = (*stack)->next;
-// 	(*stack)->next = tmp->next;
-// 	tmp->next = (*stack);
-// 	(*stack) = tmp;
-// }
+	tmp = (*stack)->next;
+	(*stack)->next = tmp->next;
+	tmp->next = *stack;
+	*stack = tmp;
+	if (option)
+		ft_printf("s%c\n", option);
+}
