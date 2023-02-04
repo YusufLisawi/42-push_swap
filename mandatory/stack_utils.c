@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 20:06:40 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 22:35:01 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/04 22:47:20 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,16 @@ void	rotate(t_list **stack)
 
 void	reverse_rotate(t_list **stack)
 {
-	t_list	*tmp;
+	t_list	*last;
+	t_list	*before_last;
 
 	if (!(*stack) || !(*stack)->next)
 		return ;
-	tmp = ft_lstlast(*stack);
-	tmp->next = *stack;
-	*stack = tmp;
-	tmp = *stack;
-	// (void)stack;
+	last = ft_lstlast(*stack);
+	before_last = *stack;
+	while (before_last->next != last)
+		before_last = before_last->next;
+	before_last->next = NULL;
+	last->next = *stack;
+	*stack = last;
 }
