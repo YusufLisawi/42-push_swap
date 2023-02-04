@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:51 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 18:21:33 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/04 20:09:01 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,15 @@ int	main(int ac, char **av)
 	if (is_sorted(stack.top_a))
 		return (0);
 	print_stacks(stack.top_a, stack.top_b);
-	swap(&stack.top_a, 'a');
+	ss(&stack, 'a');
 	print_stacks(stack.top_a, stack.top_b);
 	push_to(&stack, 'b');
+	print_stacks(stack.top_a, stack.top_b);
+	push_to(&stack, 'b');
+	print_stacks(stack.top_a, stack.top_b);
+	ss(&stack, 'b');
+	print_stacks(stack.top_a, stack.top_b);
+	ss(&stack, 's');
 	print_stacks(stack.top_a, stack.top_b);
 	return (0);
 }
