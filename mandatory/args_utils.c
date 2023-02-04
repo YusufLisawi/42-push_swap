@@ -64,8 +64,7 @@ void	check_exit(char **nbs)
 	if (!check_nums(nbs) || !check_dups(nbs))
 	{
 		free_arr(nbs);
-		write(2, "Error\n", 6);
-		exit(0);
+		exit_error();
 	}
 }
 
@@ -90,20 +89,24 @@ void	check_args(int ac, char **av, t_stack *stack)
 	char	**nbs_arr;
 
 	if (ac == 1)
-	{
-		write(2, "Error\n", 6);
-		exit(0);
-	}
+		exit_error();
 	i = 0;
 	nbs = 0;
 	while (++i < ac)
 	{
+		if (is_empty(av[i]))
+		{
+			i = -69;
+			break ;
+		}
 		s = ft_strjoin(av[i], " ");
 		nbs = ft_strjoin_gnl(nbs, s);
 		free(s);
 	}
 	nbs_arr = ft_split(nbs, ' ');
 	free(nbs);
+	if (i == -69)
+		exit_error();
 	check_exit(nbs_arr);
 	fill_stack(stack, nbs_arr);
 	free_arr(nbs_arr);
