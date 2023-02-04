@@ -5,7 +5,9 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT	= libft/libft.a
 # Mandatory
 NAME = push_swap
-SRC = mandatory/push_swap.c mandatory/args_utils.c mandatory/global_utils.c
+SRC = mandatory/push_swap.c mandatory/args_utils.c \
+	mandatory/global_utils.c mandatory/stack_utils.c \
+	mandatory/stack_operations.c 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
