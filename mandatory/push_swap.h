@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 12:38:45 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:51:55 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int		is_sorted(t_list *stack);
 void	push(t_list **stack, int content);
 int		pop(t_list **stack);
 // Stack operations
-void	pp(t_stack *stack, char type);
+void	push_to(t_stack *stack, char type);
+
 #endif
