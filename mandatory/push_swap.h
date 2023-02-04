@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 20:04:24 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/04 20:29:20 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,6 @@ int		pop(t_list **stack);
 void	push_to(t_stack *stack, char option);
 void	swap(t_list **stack);
 void	ss(t_stack *stack, int option);
+void	rotate(t_list **stack);
+void	rr(t_stack *stack, int option);
 #endif

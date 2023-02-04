@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:20:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 20:06:30 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/04 20:28:26 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,22 @@ void	ss(t_stack *stack, int option)
 	}
 	if (option == 's')
 		ft_printf("ss\n");
+}
+
+void	rr(t_stack *stack, int option)
+{
+	if (option == 'a' || option == 'r')
+	{
+		rotate(&stack->top_a);
+		if (option == 'a')
+			ft_printf("ra\n");
+	}
+	if (option == 'b' || option == 'r')
+	{
+		rotate(&stack->top_b);
+		if (option == 'b')
+			ft_printf("rb\n");
+	}
+	if (option == 'r')
+		ft_printf("rr\n");
 }
