@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:51 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/05 11:45:54 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:51:47 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	print_stacks(t_list *s1, t_list *s2);
 
 int	main(int ac, char **av)
 {
-	t_stack	stack;
+	t_stacks	stacks;
 
-	check_args(ac, av, &stack);
-	if (is_sorted(stack.top_a))
+	check_args(ac, av, &stacks.a);
+	if (is_sorted(stacks.a.top))
 		return (0);
-	print_stacks(stack.top_a, stack.top_b);
-	ss(&stack, 'a');
-	print_stacks(stack.top_a, stack.top_b);
+	print_stacks(stacks.a.top, stacks.b.top);
+	rrr(&stacks, 'a');
+	print_stacks(stacks.a.top, stacks.b.top);
 	return (0);
 }
 

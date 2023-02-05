@@ -6,41 +6,43 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:20:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 22:20:02 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:50:49 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_to(t_stack *stack, char option)
+void	push_to(t_stacks *stacks, char option)
 {
 	int		popped;
 
 	if (option == 'b')
 	{
-		popped = pop(&stack->top_a);
-		push(&stack->top_b, popped);
+		popped = pop(&stacks->a);
+		stacks->a.size--;
+		push(&stacks->b, popped);
 		ft_printf("pb\n");
 	}
 	else if (option == 'a')
 	{
-		popped = pop(&stack->top_b);
-		push(&stack->top_a, popped);
+		popped = pop(&stacks->b);
+		stacks->b.size--;
+		push(&stacks->a, popped);
 		ft_printf("pa\n");
 	}
 }
 
-void	ss(t_stack *stack, int option)
+void	ss(t_stacks *stacks, int option)
 {
 	if (option == 'a' || option == 's')
 	{
-		swap(&stack->top_a);
+		swap(&stacks->a.top);
 		if (option == 'a')
 			ft_printf("sa\n");
 	}
 	if (option == 'b' || option == 's')
 	{
-		swap(&stack->top_b);
+		swap(&stacks->b.top);
 		if (option == 'b')
 			ft_printf("sb\n");
 	}
@@ -48,17 +50,17 @@ void	ss(t_stack *stack, int option)
 		ft_printf("ss\n");
 }
 
-void	rr(t_stack *stack, int option)
+void	rr(t_stacks *stacks, int option)
 {
 	if (option == 'a' || option == 'r')
 	{
-		rotate(&stack->top_a);
+		rotate(&stacks->a);
 		if (option == 'a')
 			ft_printf("ra\n");
 	}
 	if (option == 'b' || option == 'r')
 	{
-		rotate(&stack->top_b);
+		rotate(&stacks->b);
 		if (option == 'b')
 			ft_printf("rb\n");
 	}
@@ -66,17 +68,17 @@ void	rr(t_stack *stack, int option)
 		ft_printf("rr\n");
 }
 
-void	rrr(t_stack *stack, int option)
+void	rrr(t_stacks *stacks, int option)
 {
 	if (option == 'a' || option == 'r')
 	{
-		reverse_rotate(&stack->top_a);
+		reverse_rotate(&stacks->a.top);
 		if (option == 'a')
 			ft_printf("rra\n");
 	}
 	if (option == 'b' || option == 'r')
 	{
-		reverse_rotate(&stack->top_b);
+		reverse_rotate(&stacks->b.top);
 		if (option == 'b')
 			ft_printf("rrb\n");
 	}

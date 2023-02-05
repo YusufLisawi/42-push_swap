@@ -6,31 +6,33 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 20:06:40 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/04 22:47:20 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:33:42 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_list **stack, int content)
+void	push(t_stack *stack, int content)
 {
 	t_list	*node;
 
 	node = ft_lstnew(content);
-	ft_lstadd_front(stack, node);
+	ft_lstadd_front(&stack->top, node);
+	stack->size++;
 }
 
-int	pop(t_list **stack)
+int	pop(t_stack *stack)
 {
 	t_list	*tmp;
 	int		popped;
 
-	if (!*stack)
+	if (!stack->top)
 		return (-1);
-	popped = (*stack)->content;
-	tmp = *stack;
-	*stack = tmp->next;
+	popped = stack->top->content;
+	tmp = stack->top;
+	stack->top = tmp->next;
 	free(tmp);
+	stack->size--;
 	return (popped);
 }
 
@@ -48,14 +50,14 @@ void	swap(t_list **stack)
 	*stack = tmp;
 }
 
-void	rotate(t_list **stack)
+void	rotate(t_stack *stack)
 {
 	int	popped;
 
-	if (!(*stack) || !(*stack)->next)
+	if (!stack->top || !stack->top->next)
 		return ;
 	popped = pop(stack);
-	ft_lstadd_back(stack, ft_lstnew(popped));
+	ft_lstadd_back(&stack->top, ft_lstnew(popped));
 }
 
 void	reverse_rotate(t_list **stack)

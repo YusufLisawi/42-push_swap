@@ -65,7 +65,7 @@ void	check_exit(char **nbs)
 	}
 }
 
-void	fill_stack(t_stack *stack, char **nbs)
+void	fill_stack(t_stack *a, char **nbs)
 {
 	int		i;
 	t_list	*node;
@@ -74,11 +74,12 @@ void	fill_stack(t_stack *stack, char **nbs)
 	while (nbs[++i])
 	{
 		node = ft_lstnew(ft_atoi(nbs[i]));
-		ft_lstadd_back(&stack->top_a, node);
+		ft_lstadd_back(&a->top, node);
+		a->size++;
 	}
 }
 
-void	check_args(int ac, char **av, t_stack *stack)
+void	check_args(int ac, char **av, t_stack *a)
 {
 	int		i;
 	char	*s;
@@ -103,6 +104,6 @@ void	check_args(int ac, char **av, t_stack *stack)
 	nbs_arr = ft_split(nbs, ' ');
 	free(nbs);
 	check_exit(nbs_arr);
-	fill_stack(stack, nbs_arr);
+	fill_stack(a, nbs_arr);
 	free_arr(nbs_arr);
 }
