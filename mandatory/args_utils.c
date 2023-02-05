@@ -56,9 +56,6 @@ int	check_dups(char **nbs)
 	return (1);
 }
 
-/*
-	TODO: check if sorted
- */
 void	check_exit(char **nbs)
 {
 	if (!check_nums(nbs) || !check_dups(nbs))
@@ -96,8 +93,8 @@ void	check_args(int ac, char **av, t_stack *stack)
 	{
 		if (is_empty(av[i]))
 		{
-			i = -69;
-			break ;
+			free(nbs);
+			exit_error();
 		}
 		s = ft_strjoin(av[i], " ");
 		nbs = ft_strjoin_gnl(nbs, s);
@@ -105,8 +102,6 @@ void	check_args(int ac, char **av, t_stack *stack)
 	}
 	nbs_arr = ft_split(nbs, ' ');
 	free(nbs);
-	if (i == -69)
-		exit_error();
 	check_exit(nbs_arr);
 	fill_stack(stack, nbs_arr);
 	free_arr(nbs_arr);
