@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:20:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/05 22:50:49 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:21:16 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ void	push_to(t_stacks *stacks, char option)
 	if (option == 'b')
 	{
 		popped = pop(&stacks->a);
-		stacks->a.size--;
 		push(&stacks->b, popped);
 		ft_printf("pb\n");
 	}
 	else if (option == 'a')
 	{
 		popped = pop(&stacks->b);
-		stacks->b.size--;
 		push(&stacks->a, popped);
 		ft_printf("pa\n");
 	}

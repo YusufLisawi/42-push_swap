@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 20:06:40 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/05 22:33:42 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:21:38 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	rotate(t_stack *stack)
 		return ;
 	popped = pop(stack);
 	ft_lstadd_back(&stack->top, ft_lstnew(popped));
+	stack->size++;
 }
 
 void	reverse_rotate(t_list **stack)
