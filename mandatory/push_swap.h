@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/10 19:03:05 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:15:18 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		is_sorted(t_list *stack);
 int		is_empty(const char *s);
 void	exit_error(void);
 // ------
-int		find_index(t_list *lst, int content);
+int		find_index(t_stack s, int content);
 int		find_smallest(t_stack s);
 int		find_biggest(t_stack s);
 // Stack utils

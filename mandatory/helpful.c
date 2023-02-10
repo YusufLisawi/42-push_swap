@@ -6,20 +6,20 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:55:14 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/10 19:02:26 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:15:07 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_index(t_list *lst, int content)
+int	find_index(t_stack s, int content)
 {
 	int		i;
 	t_list	*tmp;
 
 	i = 0;
-	tmp = lst;
-	while (tmp->content != content)
+	tmp = s.top;
+	while (tmp->content != content && i < s.size)
 	{
 		i++;
 		tmp = tmp->next;
