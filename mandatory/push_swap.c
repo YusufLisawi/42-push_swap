@@ -6,28 +6,13 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:51 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/07 19:04:28 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/10 19:33:15 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stacks(t_list *s1, t_list *s2);
-
-int	main(int ac, char **av)
-{
-	t_stacks	stacks;
-
-	check_args(ac, av, &stacks.a);
-	if (is_sorted(stacks.a.top))
-		return (0);
-	print_stacks(stacks.a.top, stacks.b.top);
-	rr(&stacks, 'a');
-	print_stacks(stacks.a.top, stacks.b.top);
-	return (0);
-}
-
-void	print_stacks(t_list *s1, t_list *s2)
+void	print_stacks(t_stack s1, t_stack s2)
 {
 	t_list	*temp1;
 	t_list	*temp2;
@@ -35,10 +20,10 @@ void	print_stacks(t_list *s1, t_list *s2)
 	int		height2;
 	int		i;
 
-	temp1 = s1;
-	temp2 = s2;
-	height1 = ft_lstsize(s1);
-	height2 = ft_lstsize(s2);
+	temp1 = s1.top;
+	temp2 = s2.top;
+	height1 = ft_lstsize(s1.top);
+	height2 = ft_lstsize(s2.top);
 	i = (height1 > height2) ? height1 : height2;
 	while (i >= 1)
 	{
@@ -61,4 +46,17 @@ void	print_stacks(t_list *s1, t_list *s2)
 		i--;
 	}
 	ft_printf("\033[0;36m""|\tA\t||\tB\t|\n""\033[0;37m");
+	ft_printf("\033[0;36m""|\t%d\t||\t%d\t|\n""\033[0;37m", s1.size, s2.size);
+}
+
+int	main(int ac, char **av)
+{
+	t_stacks	stacks;
+
+	check_args(ac, av, &stacks.a);
+	if (is_sorted(stacks.a.top))
+		return (0);
+	if (stacks.a.size == 3 || stacks.a.size == 2)
+		min_sort(&stacks);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/08 09:07:32 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/10 19:03:05 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		is_sorted(t_list *stack);
 int		is_empty(const char *s);
 void	exit_error(void);
+// ------
+int		find_index(t_list *lst, int content);
+int		find_smallest(t_stack s);
+int		find_biggest(t_stack s);
 // Stack utils
 void	push(t_stack *stack, int content);
 int		pop(t_stack *stack);
@@ -45,4 +49,6 @@ void	rotate(t_stack *stack);
 void	rr(t_stacks *stacks, int option);
 void	reverse_rotate(t_list **stack);
 void	rrr(t_stacks *stacks, int option);
+// Sorting
+void	min_sort(t_stacks *s);
 #endif

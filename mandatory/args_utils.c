@@ -38,8 +38,10 @@ int	check_nums(char **nbs)
 
 int	check_dups(char **nbs)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*n1;
+	char	*n2;
 
 	i = 0;
 	while (nbs[i])
@@ -47,9 +49,13 @@ int	check_dups(char **nbs)
 		j = i + 1;
 		while (nbs[j])
 		{
-			if (ft_strcmp(nbs[j], nbs[i]) == 0)
+			n1 = ft_strtrim(nbs[j], "+");
+			n2 = ft_strtrim(nbs[i], "+");
+			if (ft_strcmp(n1, n2) == 0)
 				return (0);
 			j++;
+			free(n1);
+			free(n2);
 		}
 		i++;
 	}
