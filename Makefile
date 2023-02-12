@@ -8,8 +8,9 @@ NAME = push_swap
 SRC = mandatory/push_swap.c mandatory/args_utils.c \
 	mandatory/global_utils.c mandatory/stack_utils.c \
 	mandatory/min_sorting.c mandatory/finders.c \
-	mandatory/stack_operations.c mandatory/sorting_checkers.c  
-	mandatory/stack_operations.c mandatory/sorting_checkers.c  
+	mandatory/stack_operations.c mandatory/sorting_utils.c \
+	mandatory/max_sorting.c \
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
