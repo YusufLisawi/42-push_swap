@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 17:39:29 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:09:06 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ void	rrx(int option, t_stacks *stacks);
 void	min_sort(t_stacks *s);
 void	rev_sort(t_stacks *s);
 void	max_sort(t_stacks *s, int range);
+void	sorting_push(t_stacks *s);
 #endif

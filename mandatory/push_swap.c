@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:51 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 17:56:13 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:37:04 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	main(int ac, char **av)
 	else if (is_revsorted(stacks.a.top))
 		rev_sort(&stacks);
 	else if (stacks.a.size <= 100)
-		max_sort(&stacks, 12);
+		max_sort(&stacks, 18);
 	else if (stacks.a.size <= 500)
-		max_sort(&stacks, 25);
+		max_sort(&stacks, 35);
 	return (0);
 }

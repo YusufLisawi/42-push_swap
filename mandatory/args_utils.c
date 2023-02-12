@@ -20,6 +20,8 @@ int	check_nums(char **nbs)
 	i = 0;
 	while (nbs[i])
 	{
+		if (ft_strcmp(nbs[i], "+") == 0 || ft_strcmp(nbs[i], "-") == 0)
+			return (0);
 		if (ft_strtol(nbs[i]) > INT_MAX || ft_strtol(nbs[i]) < INT_MIN)
 			return (0);
 		j = 0;

@@ -6,11 +6,37 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:36:33 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 17:05:40 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:08:59 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	sorting_push(t_stacks *s)
+{
+	int	index;
+	int	biggest;
+
+	while (s->b.size != 0)
+	{
+		biggest = max(s->b);
+		index = find_index(s->b, biggest);
+		if (index <= s->b.size / 2)
+		{
+			if (s->b.top->content == biggest)
+				px(A, s);
+			else
+				rx(B, s);
+		}
+		else if (index > s->b.size / 2)
+		{
+			if (s->b.top->content == biggest)
+				px(A, s);
+			else
+				rrx(B, s);
+		}
+	}
+}
 
 int	is_sorted(t_list *stack)
 {
