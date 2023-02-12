@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 19:09:06 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 20:28:42 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,20 @@ int		max(t_stack s);
 void	push(t_stack *stack, int content);
 int		pop(t_stack *stack);
 // Stack operations
-void	px(char option, t_stacks *stacks);
+void	px(int option, t_stacks *stacks, int print);
 void	swap(t_list **stack);
-void	sx(int option, t_stacks *stacks);
+void	sx(int option, t_stacks *stacks, int print);
 void	rotate(t_stack *stack);
-void	rx(int option, t_stacks *stacks);
+void	rx(int option, t_stacks *stacks, int print);
 void	reverse_rotate(t_list **stack);
-void	rrx(int option, t_stacks *stacks);
+void	rrx(int option, t_stacks *stacks, int print);
 // Sorting
 void	min_sort(t_stacks *s);
 void	rev_sort(t_stacks *s);
 void	max_sort(t_stacks *s, int range);
 void	sorting_push(t_stacks *s);
+
+// Bonus
+void	exec_rule(char *rule, t_stacks *s);
+void	check_stack(t_stacks *s);
 #endif

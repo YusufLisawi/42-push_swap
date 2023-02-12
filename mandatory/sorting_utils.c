@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:36:33 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 19:08:59 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 20:26:21 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ void	sorting_push(t_stacks *s)
 		if (index <= s->b.size / 2)
 		{
 			if (s->b.top->content == biggest)
-				px(A, s);
+				px(A, s, 1);
 			else
-				rx(B, s);
+				rx(B, s, 1);
 		}
 		else if (index > s->b.size / 2)
 		{
 			if (s->b.top->content == biggest)
-				px(A, s);
+				px(A, s, 1);
 			else
-				rrx(B, s);
+				rrx(B, s, 1);
 		}
 	}
 }

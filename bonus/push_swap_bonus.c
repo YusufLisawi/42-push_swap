@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   max_sorting.c                                      :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 15:05:52 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 20:26:21 by yelaissa         ###   ########.fr       */
+/*   Created: 2023/02/10 19:00:51 by yelaissa          #+#    #+#             */
+/*   Updated: 2023/02/12 20:17:37 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	max_sort(t_stacks *s, int range)
+void	init(t_stacks *s)
 {
-	int	index;
-	int	resize_range;
+	s->a.top = 0;
+	s->a.size = 0;
+	s->b.top = 0;
+	s->b.size = 0;
+	s->sorted_a.top = 0;
+	s->sorted_a.size = 0;
+}
 
-	resize_range = 0;
-	while (s->a.size != 0)
+int	main(int ac, char **av)
+{
+	t_stacks	stacks;
+	char		*rule;
+
+	init(&stacks);
+	check_args(ac, av, &stacks);
+	if (is_sorted(stacks.a.top))
+		return (0);
+	rule = get_next_line(0);
+	while (rule != NULL)
 	{
-		index = find_index(s->sorted_a, s->a.top->content);
-		if (index <= resize_range + range && index >= resize_range)
-		{
-			px(B, s, 1);
-			resize_range++;
-		}
-		else if (index < resize_range)
-		{
-			px(B, s, 1);
-			rx(B, s, 1);
-			resize_range++;
-		}
-		else if (index > resize_range + range)
-			rx(A, s, 1);
+		exec_rule(rule, &stacks);
+		rule = get_next_line(0);
 	}
-	sorting_push(s);
+	check_stack(&stacks);
+	return (0);
 }
