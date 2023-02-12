@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helpful.c                                          :+:      :+:    :+:   */
+/*   finders.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:55:14 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/10 20:15:07 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 10:37:45 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	find_index(t_stack s, int content)
 {
@@ -27,34 +27,34 @@ int	find_index(t_stack s, int content)
 	return (i);
 }
 
-int	find_smallest(t_stack s)
+int	min(t_stack s)
 {
-	int		smallest;
+	int		min;
 	t_list	*tmp;
 
-	smallest = s.top->content;
+	min = s.top->content;
 	tmp = s.top;
 	while (tmp)
 	{
-		if (smallest > tmp->content)
-			smallest = tmp->content;
+		if (min > tmp->content)
+			min = tmp->content;
 		tmp = tmp->next;
 	}
-	return (smallest);
+	return (min);
 }
 
-int	find_biggest(t_stack s)
+int	max(t_stack s)
 {
-	int		biggest;
+	int		max;
 	t_list	*tmp;
 
-	biggest = s.top->content;
+	max = s.top->content;
 	tmp = s.top;
 	while (tmp)
 	{
-		if (biggest < tmp->content)
-			biggest = tmp->content;
+		if (max < tmp->content)
+			max = tmp->content;
 		tmp = tmp->next;
 	}
-	return (biggest);
+	return (max);
 }

@@ -1,54 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   global_utils.c                                     :+:      :+:    :+:   */
+/*   sorting_checkers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 13:16:38 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 10:37:45 by yelaissa         ###   ########.fr       */
+/*   Created: 2023/02/12 10:36:33 by yelaissa          #+#    #+#             */
+/*   Updated: 2023/02/12 10:38:05 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_arr(char **arr)
+int	is_sorted(t_list *stack)
 {
-	int	i;
+	t_list	*current;
 
-	i = 0;
-	while (arr[i])
+	current = stack;
+	while (current->next != 0)
 	{
-		free(arr[i]);
-		arr[i] = 0;
-		i++;
-	}
-	free(arr);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	while ((s2[i] || s1[i]) && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-int	is_empty(const char *s)
-{
-	while (*s)
-	{
-		if (*s != ' ' && *s != '\t')
+		if (current->content > current->next->content)
 			return (0);
-		s++;
+		current = current->next;
 	}
 	return (1);
 }
 
-void	exit_error(void)
+int	is_revsorted(t_list *stack)
 {
-	write(2, "Error\n", 6);
-	exit(0);
+	t_list	*current;
+
+	current = stack;
+	while (current->next != 0)
+	{
+		if (current->content < current->next->content)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

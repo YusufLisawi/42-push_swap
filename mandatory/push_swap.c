@@ -6,11 +6,11 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:41:51 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/10 20:26:01 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 11:28:00 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	print_stacks(t_stack s1, t_stack s2)
 {
@@ -53,14 +53,17 @@ int	main(int ac, char **av)
 {
 	t_stacks	stacks;
 
+	stacks.a.top = 0;
+	stacks.a.size = 0;
+	stacks.b.top = 0;
+	stacks.b.size = 0;
 	check_args(ac, av, &stacks.a);
 	if (is_sorted(stacks.a.top))
 		return (0);
-	if (stacks.a.size == 5 || stacks.a.size == 4 \
-		|| stacks.a.size == 3 || stacks.a.size == 2)
+	if (stacks.a.size <= 5)
 		min_sort(&stacks);
-	else if (stacks.a.size <= 500)
-		min_sort(&stacks);
+	else if (is_revsorted(stacks.a.top))
+		rev_sort(&stacks);
 	// print_stacks(stacks.a, stacks.b);
 	return (0);
 }

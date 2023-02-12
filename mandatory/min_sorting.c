@@ -6,55 +6,69 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:49:05 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/10 20:24:49 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 11:26:38 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sort_three(t_stacks *s)
 {
-	if (s->a.top->next->content == find_biggest(s->a) \
-	&& s->a.top->content == find_smallest(s->a))
+	if (s->a.top->next->content == max(s->a) \
+		&& s->a.top->content == min(s->a))
 	{
-		ss(s, 'a');
-		rr(s, 'a');
+		sx(A, s);
+		rx(A, s);
 	}
-	if (s->a.top->content == find_biggest(s->a))
-		rr(s, 'a');
-	if (s->a.top->next->next->content == find_smallest(s->a))
-		rrr(s, 'a');
-	if (s->a.top->next->content == find_smallest(s->a))
-		ss(s, 'a');
+	if (s->a.top->content == max(s->a))
+		rx(A, s);
+	if (s->a.top->next->next->content == min(s->a))
+		rrx(A, s);
+	if (s->a.top->next->content == min(s->a))
+		sx(A, s);
 }
 
 void	sort_five(t_stacks *s)
 {
 	int		smallest;
-	t_list	*tmp;
 
-	smallest = find_smallest(s->a);
-	tmp = s->a.top;
+	smallest = min(s->a);
 	while (s->a.top->content != smallest)
 	{
 		if (find_index(s->a, smallest) <= s->a.size / 2)
-			rr(s, 'a');
+			rx(A, s);
 		else if (find_index(s->a, smallest) > s->a.size / 2)
-			rrr(s, 'a');
+			rrx(A, s);
 	}
-	push_to(s, 'b');
-	if (s->a.size != 0)
+	px(B, s);
+	if (s->a.size != 3)
 		sort_five(s);
+	sort_three(s);
 	while (s->b.size != 0)
-		push_to(s, 'a');
+		px(A, s);
 }
 
 void	min_sort(t_stacks *s)
 {
 	if (s->a.size == 2)
-		ss(s, 'a');
+		sx(A, s);
 	else if (s->a.size == 3)
 		sort_three(s);
-	else if (s->a.size <= 500)
+	else if (s->a.size <= 5)
 		sort_five(s);
+}
+
+void	rev_sort(t_stacks *s)
+{
+	int	size;
+
+	size = s->a.size;
+	rx(A, s);
+	while (--size)
+		px(B, s);
+	while (s->b.size != 0)
+	{
+		rrx(B, s);
+		px(A, s);
+	}
 }

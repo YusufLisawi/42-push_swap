@@ -6,13 +6,13 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 12:20:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/06 18:21:16 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 10:37:45 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-void	push_to(t_stacks *stacks, char option)
+void	px(char option, t_stacks *stacks)
 {
 	int		popped;
 
@@ -30,7 +30,7 @@ void	push_to(t_stacks *stacks, char option)
 	}
 }
 
-void	ss(t_stacks *stacks, int option)
+void	sx(int option, t_stacks *stacks)
 {
 	if (option == 'a' || option == 's')
 	{
@@ -48,7 +48,7 @@ void	ss(t_stacks *stacks, int option)
 		ft_printf("ss\n");
 }
 
-void	rr(t_stacks *stacks, int option)
+void	rx(int option, t_stacks *stacks)
 {
 	if (option == 'a' || option == 'r')
 	{
@@ -66,7 +66,7 @@ void	rr(t_stacks *stacks, int option)
 		ft_printf("rr\n");
 }
 
-void	rrr(t_stacks *stacks, int option)
+void	rrx(int option, t_stacks *stacks)
 {
 	if (option == 'a' || option == 'r')
 	{

@@ -10,12 +10,12 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	check_nums(char **nbs)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (nbs[i])
@@ -23,10 +23,10 @@ int	check_nums(char **nbs)
 		if (ft_strtol(nbs[i]) > INT_MAX || ft_strtol(nbs[i]) < INT_MIN)
 			return (0);
 		j = 0;
+		if (nbs[i][0] == '-' || nbs[i][0] == '+')
+			j++;
 		while (nbs[i][j])
 		{
-			if (nbs[i][0] == '-' || nbs[i][0] == '+')
-				j++;
 			if (!ft_isdigit(nbs[i][j]))
 				return (0);
 			j++;

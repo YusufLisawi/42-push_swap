@@ -6,11 +6,11 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 20:06:40 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/06 18:21:38 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 10:37:45 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	push(t_stack *stack, int content)
 {

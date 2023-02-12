@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/10 20:15:18 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/12 11:27:04 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# define A 'a'
+# define B 'b'
+# define S 's'
+# define R 'r'
 
 typedef struct s_stack
 {
@@ -31,24 +35,26 @@ void	check_args(int ac, char **av, t_stack *a);
 // Utils
 void	free_arr(char **arr);
 int		ft_strcmp(const char *s1, const char *s2);
-int		is_sorted(t_list *stack);
 int		is_empty(const char *s);
 void	exit_error(void);
+int		is_sorted(t_list *stack);
+int		is_revsorted(t_list *stack);
 // ------
 int		find_index(t_stack s, int content);
-int		find_smallest(t_stack s);
-int		find_biggest(t_stack s);
+int		min(t_stack s);
+int		max(t_stack s);
 // Stack utils
 void	push(t_stack *stack, int content);
 int		pop(t_stack *stack);
 // Stack operations
-void	push_to(t_stacks *stacks, char option);
+void	px(char option, t_stacks *stacks);
 void	swap(t_list **stack);
-void	ss(t_stacks *stacks, int option);
+void	sx(int option, t_stacks *stacks);
 void	rotate(t_stack *stack);
-void	rr(t_stacks *stacks, int option);
+void	rx(int option, t_stacks *stacks);
 void	reverse_rotate(t_list **stack);
-void	rrr(t_stacks *stacks, int option);
+void	rrx(int option, t_stacks *stacks);
 // Sorting
 void	min_sort(t_stacks *s);
+void	rev_sort(t_stacks *s);
 #endif
