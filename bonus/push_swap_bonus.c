@@ -18,8 +18,6 @@ void	init(t_stacks *s)
 	s->a.size = 0;
 	s->b.top = 0;
 	s->b.size = 0;
-	s->sorted_a.top = 0;
-	s->sorted_a.size = 0;
 }
 
 int	main(int ac, char **av)

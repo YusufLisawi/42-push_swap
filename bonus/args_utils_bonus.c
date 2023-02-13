@@ -84,10 +84,7 @@ void	fill_stack(t_stacks *s, char **nbs)
 		node = ft_lstnew(ft_atoi(nbs[i]));
 		ft_lstadd_back(&s->a.top, node);
 		s->a.size++;
-		s->sorted_a.size++;
 	}
-	s->sorted_a.top = copy_list(s->a.top);
-	sort_list(s->sorted_a.top);
 }
 
 void	check_args(int ac, char **av, t_stacks *s)
