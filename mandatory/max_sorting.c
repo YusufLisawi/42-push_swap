@@ -15,24 +15,24 @@
 void	max_sort(t_stacks *s, int range)
 {
 	int	index;
-	int	resize_range;
+	int	enlarge_range;
 
-	resize_range = 0;
+	enlarge_range = 0;
 	while (s->a.size != 0)
 	{
 		index = find_index(s->sorted_a, s->a.top->content);
-		if (index <= resize_range + range && index >= resize_range)
+		if (index >= enlarge_range && index <= enlarge_range + range)
 		{
 			px(B, s, 1);
-			resize_range++;
+			enlarge_range++;
 		}
-		else if (index < resize_range)
+		else if (index < enlarge_range)
 		{
 			px(B, s, 1);
 			rx(B, s, 1);
-			resize_range++;
+			enlarge_range++;
 		}
-		else if (index > resize_range + range)
+		else if (index > enlarge_range + range)
 			rx(A, s, 1);
 	}
 	sorting_push(s);
