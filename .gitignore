@@ -1,1 +1,5 @@
 push_swap_visualizer
+push_swap_tester
+.vscode/*
+.vscode
+.DS_Store

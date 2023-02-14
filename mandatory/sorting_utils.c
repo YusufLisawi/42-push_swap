@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 10:36:33 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 20:26:21 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:10:58 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,29 @@ int	is_sorted(t_list *stack)
 	return (1);
 }
 
-int	is_revsorted(t_list *stack)
+int	is_revsorted(t_stack s)
 {
 	t_list	*current;
+	int		i;
+	int		j;
 
-	current = stack;
+	i = 1;
+	j = 0;
+	current = s.top;
 	while (current->next != 0)
 	{
 		if (current->content < current->next->content)
-			return (0);
+			j++;
+		else
+			i++;
 		current = current->next;
 	}
-	return (1);
+	if (i == s.size)
+		return (i);
+	else if (j <= s.size / 10)
+		return (-1);
+	else
+		return (-2);
 }
 
 t_list	*copy_list(t_list *head)

@@ -98,7 +98,7 @@ void	check_args(int ac, char **av, t_stacks *s)
 	char	**nbs_arr;
 
 	if (ac == 1)
-		exit_error();
+		exit(0);
 	i = 0;
 	nbs = 0;
 	while (++i < ac)
