@@ -63,7 +63,7 @@ void	rev_sort(t_stacks *s)
 	int	size;
 
 	size = s->a.size;
-	while (--size)
+	while (size--)
 		px(B, s, 1);
 	sorting_push(s);
 }
