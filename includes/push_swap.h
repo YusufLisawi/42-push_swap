@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:42:45 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 20:28:42 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/14 12:23:46 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		is_empty(const char *s);
 void	exit_error(void);
 int		is_sorted(t_list *stack);
-int		is_revsorted(t_list *stack);
+int		is_revsorted(t_stack s);
 t_list	*copy_list(t_list *head);
 void	sort_list(t_list *head);
 // ------

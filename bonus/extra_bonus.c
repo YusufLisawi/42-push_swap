@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 20:12:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 20:13:32 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/14 19:08:15 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	is_empty(const char *s)
 
 void	free_arr(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (arr[i])
