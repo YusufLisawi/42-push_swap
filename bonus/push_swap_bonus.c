@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:00:51 by yelaissa          #+#    #+#             */
-/*   Updated: 2023/02/12 20:17:37 by yelaissa         ###   ########.fr       */
+/*   Updated: 2023/02/17 09:24:26 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int ac, char **av)
 	while (rule != NULL)
 	{
 		exec_rule(rule, &stacks);
+		free(rule);
 		rule = get_next_line(0);
 	}
 	check_stack(&stacks);
